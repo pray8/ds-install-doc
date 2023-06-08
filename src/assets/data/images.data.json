@@ -1,0 +1,13 @@
+[
+    "appveen/data.stack.proxy:2.7.0",
+    "appveen/data.stack.gw:2.7.0",
+    "appveen/data.stack.user:2.7.0",
+    "appveen/data.stack.sm:2.7.0",
+    "appveen/data.stack.base:2.7.0",
+    "appveen/data.stack.bm:2.7.0",
+    "appveen/data.stack.b2b.base:2.7.0",
+    "appveen/data.stack.faas.base:2.7.0",
+    "appveen/data.stack.ne:2.7.0",
+    "appveen/data.stack.mon:2.7.0",
+    "appveen/data.stack.common:2.7.0"
+]

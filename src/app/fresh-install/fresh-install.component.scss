@@ -1,0 +1,28 @@
+.logo-wrapper {
+    .logo {
+        height: 50px;
+    }
+}
+
+.content {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.sidenav {
+    min-width: 260px;
+    max-width: 260px;
+    overflow: auto;
+}
+
+.code-block {
+    font-family: 'Courier New', Courier, monospace;
+    // background: #333;
+    // color: #efefef;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.text-monospace {
+    font-family: 'Courier New', Courier, monospace;
+}

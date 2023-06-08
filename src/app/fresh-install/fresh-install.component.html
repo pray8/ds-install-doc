@@ -1,0 +1,274 @@
+<nav class="navbar bg-dark">
+    <div class="container-fluid d-flex align-items-center">
+        <div class="logo-wrapper">
+            <img class="logo" src="assets/img/DataNimbus_Logo_Blue.svg" alt="Logo">
+        </div>
+        <h5 class="navbar-brand text-white m-0">Data.Stack 2.7.x Installation Guide</h5>
+    </div>
+</nav>
+<div class="p-3">
+    <div class="mb-4">
+        <h5 appHeading>Data Stack Architecture</h5>
+        <img class="w-100 my-3" src="assets/img/ds_arch.drawio.svg" alt="">
+        <p class="p-2 border rounded bg-light text-secondary">
+            <strong>Components in Data Stack</strong>
+        </p>
+        <table class="table table-bordered">
+            <thead class="table-secondary">
+                <tr>
+                    <th>Module</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="table-light text-dark text-monospace">USER</th>
+                    <td>
+                        This module is responsible for managing Apps, Users, Groups, Permissions and Connectors
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">SM</th>
+                    <td>
+                        This module is responsible for managing Data Services and Library/Global Schema
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">BM</th>
+                    <td>
+                        This module is responsible for managing Data Pipes/Flow, Data Formats, Agents and Functions
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">MON</th>
+                    <td>
+                        This module is responsible for managing Logs for all the modules
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">NE</th>
+                    <td>
+                        This module is responsible for triggering Web Hooks
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">COMMON</th>
+                    <td>
+                        This module is used for using transactions
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">GW</th>
+                    <td>
+                        This module is used for routing request to individual modules
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">PROXY</th>
+                    <td>
+                        This module is used for serving UI files and to proxy the API requests to GW
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">CACHE</th>
+                    <td>
+                        This module is a wrapper over redis.io <i>(redis:5.x)</i>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-light text-dark text-monospace">MESSAGING</th>
+                    <td>
+                        This module is a wrapper over nats-streaming <i>(nats-streaming:0.11.x)</i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="mb-4">
+        <h5 appHeading>Data Stack Pre-requisite</h5>
+        <div class="p-3">
+            <ul>
+                <li class="">Make sure you have Machine. <i class="text-muted">(Recomended Hardware: 4Core 16GB)</i> <i
+                        class="text-muted">(Optional: 3 node cluster)</i> </li>
+                <li class="">Make sure you have installed Docker and Kubernetes in that Machine.</li>
+                <li class="">Make sure you have an image registry and that should be accessible by the Machine.</li>
+                <li class="">
+                    Make sure you have pulled all the images of data.stack from Docker Hub to your image registry
+                    <ul class="font-14">
+                        <li class="text-muted text-monospace" *ngFor="let item of images">{{item}}</li>
+                    </ul>
+                </li>
+                <li class="">Make sure you have all the YAMLs to install Data.Stack <i>(Generate it from <a
+                            href="/installer" target="_blank">here</a> )</i>.
+                    <div class="mt-2 text-muted">Checklist:-</div>
+                    <table class="font-14" style="width: 400px;">
+                        <tr>
+                            <td>Config Map</td>
+                            <td class="text-muted text-monospace">configMap.yaml <a href="#envList">ENV Var List</a></td>
+                        </tr>
+                        <tr>
+                            <td>Serice Account</td>
+                            <td class="text-muted text-monospace">serviceAccount.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>User Management</td>
+                            <td class="text-muted text-monospace">user.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Service Manager</td>
+                            <td class="text-muted text-monospace">sm.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>B2B Manager</td>
+                            <td class="text-muted text-monospace">bm.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Monitoring</td>
+                            <td class="text-muted text-monospace">mon.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Notification Engine</td>
+                            <td class="text-muted text-monospace">ne.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Common</td>
+                            <td class="text-muted text-monospace">common.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Gateway</td>
+                            <td class="text-muted text-monospace">gw.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Proxy</td>
+                            <td class="text-muted text-monospace">proxy.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Cache</td>
+                            <td class="text-muted text-monospace">cache.yaml</td>
+                        </tr>
+                        <tr>
+                            <td>Messaging</td>
+                            <td class="text-muted text-monospace">messaging.yaml</td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mb-4">
+        <h5 appHeading>Data Stack Install Steps</h5>
+        <div class="p-3">
+            <div class="mr-2 p-1">
+                <span class="fw-600 me-2">Step 1:</span>
+                <span>Create Namespace to install data.stack</span>
+                <i>&nbsp;(e.g. appveen)</i>
+                <div class="font-14 code-block">kubectl create ns appveen</div>
+            </div>
+            <div class="mr-2 p-1">
+                <span class="fw-600 me-2">Step 2:</span>
+                <span>Create k8S secret to mount to proxy pod for making HTTPs requests</span>
+                <i>&nbsp;(e.g. appveen)</i>
+                <div class="font-14 code-block">kubectl create secret generic ds-nginx-sec
+                    --from-file=odp_server.crt=./odp_default.crt --from-file=odp_server.key=./odp_default.key
+                    -n=&lt;&lt;namespace&gt;&gt;</div>
+                <span class="font-14"> <span class="fw-600">Note:&nbsp;</span> You can disable HTTPs connection by
+                    setting ENV variable <span class="fw-500">PROXY_ENABLE_TLS: <span
+                            class="text-primary">false</span></span></span>
+            </div>
+            <div class="mr-2 p-1">
+                <span class="fw-600 me-2">Step 3:</span>
+                <span>Apply the Data Stack Yamls in below sequence</span>
+                <ol class="font-14">
+                    <li><span class="text-monospace">kubectl apply -f configMap.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f serviceAccount.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f cache.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f messaging.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f user.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f sm.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f bm.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f mon.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f ne.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f common.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f gw.yaml</span></li>
+                    <li><span class="text-monospace">kubectl apply -f proxy.yaml</span></li>
+                </ol>
+            </div>
+            <div class="mr-2 p-1">
+                <span class="fw-600 me-2">Step 4:</span>
+                <span>Make sure all pods are up and running</span>
+            </div>
+            <div class="mr-2 p-1">
+                <span class="fw-600 me-2">Step 5:</span>
+                <span>Use the platform by exposing its APIs, but routing external request to PROXY</span>
+                <table class="table table-bordered table-sm mt-2">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Outside Request</th>
+                            <th>Proxy Path</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>/author</td>
+                            <td>/author</td>
+                        </tr>
+                        <tr>
+                            <td>/appcenter</td>
+                            <td>/appcenter</td>
+                        </tr>
+                        <tr>
+                            <td>/api(*)</td>
+                            <td>/api</td>
+                        </tr>
+                        <tr>
+                            <td>/doc</td>
+                            <td>/doc</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="mb-4">
+        <h5 appHeading>Miscellaneous</h5>
+        <div id="sampleCode1" class="p-3">
+            <div>
+                <span class="font-18 fw-600">Command to generate SSH Key and Crt.</span>
+            </div>
+            <ol class="font-14">
+                <li>
+                    <div class="code-block">
+                        openssl req -newkey rsa:2048 -nodes -keyout &lt;name&gt;.key -out &lt;name&gt;.csr -subj
+                        "/C=IN/ST=Karnataka/L=Bangalore/O=appveen/OU=Engineering/CN=appveen.com"
+                    </div>
+                </li>
+                <li>
+                    <div class="code-block">
+                        openssl x509 -signkey &lt;name&gt;.key -in &lt;name&gt;.csr -req -days 365 -out &lt;name&gt;.crt
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <div id="envList" class="p-3">
+            <div>
+                <span class="font-18 fw-600">Environment List</span>
+            </div>
+            <table class="table table-sm table-bordered mt-2">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>ENV Variable</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of envList">
+                        <td>{{item.key}}</td>
+                        <td>{{item.default}}</td>
+                        <td class="w-100">{{item.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

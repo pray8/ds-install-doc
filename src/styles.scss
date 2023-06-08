@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+$count: 400;
+
+@while $count < 900 {
+    .fw-#{$count} {
+        font-weight: $count;
+    }
+
+    $count: $count + 100;
+}
+
+
+$count: 7;
+
+@while $count < 26 {
+    .font-#{$count} {
+        font-size: $count+px;
+    }
+
+    $count: $count + 1;
+}
