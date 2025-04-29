@@ -1,0 +1,42 @@
+.page-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #30363d;
+
+  .metadata {
+    margin-bottom: 2rem;
+    
+    .last-updated {
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
+  }
+
+  .feedback-section {
+    text-align: center;
+    
+    p {
+      color: #8b949e;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      .btn-feedback {
+        padding: 0.5rem 1rem;
+        background: #21262d;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        color: #c9d1d9;
+        cursor: pointer;
+
+        &:hover {
+          background: #30363d;
+        }
+      }
+    }
+  }
+} 

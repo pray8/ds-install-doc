@@ -1,0 +1,106 @@
+.key-features-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h1 {
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+
+  .key-features-section {
+    margin-bottom: 3rem;
+    
+    h2 {
+      color: #58a6ff;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+  }
+}
+
+.markdown-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #c9d1d9;
+    
+    ::ng-deep {
+        h1, h2, h3, h4, h5, h6 {
+            color: #58a6ff;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            color: #c9d1d9;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #c9d1d9;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+        
+        pre {
+            background-color: #161b22;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #161b22;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        blockquote {
+            border-left: 4px solid #30363d;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #8b949e;
+        }
+    }
+}
