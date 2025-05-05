@@ -1,11 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-documentation',
   templateUrl: './documentation.component.html',
   styleUrls: ['./documentation.component.scss']
 })
-export class DocumentationComponent {
+export class DocumentationComponent implements OnInit {
+  selectedDocType = 'User Documentation';
+
+  constructor(private router: Router) {
+    // Listen to route changes to update selectedDocType
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (event.url.includes('installation-guide')) {
+          this.selectedDocType = 'Installation Guide';
+        } else {
+          this.selectedDocType = 'User Documentation';
+        }
+      }
+    });
+  }
+
+  ngOnInit() {
+    // Set initial value based on route
+    if (this.router.url.includes('installation-guide')) {
+      this.selectedDocType = 'Installation Guide';
+    } else {
+      this.selectedDocType = 'User Documentation';
+    }
+  }
+
   menuItems = [
     {
       title: 'Introduction',
@@ -66,4 +91,19 @@ export class DocumentationComponent {
       ]
     }
   ];
+
+  installationGuideMenu = [
+    { path: 'installation-guide', title: 'Installation Guide Home' },
+    // Add more items here if needed
+  ];
+
+  onDocumentSelect(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    this.selectedDocType = value;
+    if (value === 'Installation Guide') {
+      this.router.navigate(['docs/installation-guide']);
+    } else {
+      this.router.navigate(['docs/overview']);
+    }
+  }
 } 

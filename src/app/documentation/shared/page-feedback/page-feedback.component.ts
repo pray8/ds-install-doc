@@ -7,4 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class PageFeedbackComponent {
   @Input() lastUpdated?: Date;
-} 
+}

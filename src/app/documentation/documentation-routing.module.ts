@@ -10,6 +10,7 @@ import { AgentsComponent } from './pages/agents/agents.component';
 import { PluginsComponent } from './pages/plugins/plugins.component';
 import { FormulasComponent } from './pages/formulas/formulas.component';
 import { AppPanelComponent } from './pages/app-panel/app-panel.component';
+import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,11 @@ const routes: Routes = [
       {
         path: 'app-panel',
         component: AppPanelComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'installation-guide',
+        component: InstallationGuideComponent,
         pathMatch: 'full'
       }
     ]

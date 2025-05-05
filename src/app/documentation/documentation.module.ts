@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { DocumentationRoutingModule } from './documentation-routing.module';
 import { DocumentationComponent } from './documentation.component';
 import { OverviewComponent } from './pages/overview/overview.component';
@@ -14,6 +15,7 @@ import { AgentsComponent } from './pages/agents/agents.component';
 import { PluginsComponent } from './pages/plugins/plugins.component';
 import { FormulasComponent } from './pages/formulas/formulas.component';
 import { AppPanelComponent } from './pages/app-panel/app-panel.component';
+import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
 
 
 @NgModule({
@@ -28,13 +30,15 @@ import { AppPanelComponent } from './pages/app-panel/app-panel.component';
     AgentsComponent,
     PluginsComponent,
     FormulasComponent,
-    AppPanelComponent
+    AppPanelComponent,
+    InstallationGuideComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     DocumentationRoutingModule,
-    MarkdownModule
+    MarkdownModule,
+    FormsModule
   ],
   exports: [
     PageFeedbackComponent
