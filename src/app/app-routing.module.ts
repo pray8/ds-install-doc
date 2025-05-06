@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FreshInstallComponent } from './fresh-install/fresh-install.component';
 
 const routes: Routes = [
-    { path: 'fresh', component: FreshInstallComponent },
+    { path: 'architecture', component: FreshInstallComponent },
     {
         path: 'docs',
         loadChildren: () => import('./documentation/documentation.module').then(m => m.DocumentationModule)
