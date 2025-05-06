@@ -65,4 +65,14 @@ If the agent is not able to process the number of files, the files will be proce
 
 → To download an agent navigate to Agents tab, create an agent by specifying the required configurations, to Download the agent, click on the three dots, click on Download, select the type of the executable and system architecture.
 
-- <img src="/app/assets/docs/images/agents_0.png" alt="Formula Creation Screenshot" />
+<!-- - <img src="/app/assets/docs/images/agents_0.png" alt="Agents 0" />
+- <img src="/app/assets/docs/images/agents_0.png" alt="Agents 1" /> -->
+
+
+<div style="display: flex; gap: 10px;">
+  <img src="/app/assets/docs/images/agents_0.png" alt="Agents 0" style="width: 45%;">
+  <img src="/app/assets/docs/images/agents_1.png" alt="Agents 1" style="width: 45%;">
+</div>
+
+# What are the folders that are inside a agent?
+When we download and extract an agent, we can see all the below folders, 
