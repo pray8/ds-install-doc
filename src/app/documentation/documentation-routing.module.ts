@@ -11,6 +11,8 @@ import { PluginsComponent } from './pages/plugins/plugins.component';
 import { FormulasComponent } from './pages/formulas/formulas.component';
 import { AppPanelComponent } from './pages/app-panel/app-panel.component';
 import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
+import { InsFreshInstallationComponent } from './pages/ins-fresh-installation/ins-fresh-installation.component';
+import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
 
 const routes: Routes = [
   {
@@ -70,6 +72,20 @@ const routes: Routes = [
       {
         path: 'installation-guide',
         component: InstallationGuideComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'fresh-install',
+        component: InsFreshInstallationComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'yamls/:type',
+        component: InsYamlsComponent
+      },
+      {
+        path: 'yamls',
+        redirectTo: 'yamls/config',
         pathMatch: 'full'
       }
     ]

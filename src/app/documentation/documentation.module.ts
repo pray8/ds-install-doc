@@ -16,7 +16,8 @@ import { PluginsComponent } from './pages/plugins/plugins.component';
 import { FormulasComponent } from './pages/formulas/formulas.component';
 import { AppPanelComponent } from './pages/app-panel/app-panel.component';
 import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
-
+import { InsFreshInstallationComponent } from './pages/ins-fresh-installation/ins-fresh-installation.component';
+import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +32,15 @@ import { InstallationGuideComponent } from './pages/installation-guide/installat
     PluginsComponent,
     FormulasComponent,
     AppPanelComponent,
-    InstallationGuideComponent
+    InstallationGuideComponent,
+    InsFreshInstallationComponent,
+    InsYamlsComponent,  
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     DocumentationRoutingModule,
-    MarkdownModule,
+    MarkdownModule.forChild(),
     FormsModule
   ],
   exports: [

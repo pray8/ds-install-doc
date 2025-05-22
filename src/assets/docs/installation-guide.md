@@ -11,11 +11,3 @@
 - All required Data Stack images pulled to your registry
 - Installation YAML files (generated from the installer)
 
-## Installation Steps
-
-### Step 1: Create Namespace
-
-Create a namespace for installing Data Stack:
-
-```bash
-kubectl create ns appveen

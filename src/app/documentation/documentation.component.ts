@@ -13,7 +13,7 @@ export class DocumentationComponent implements OnInit {
     // Listen to route changes to update selectedDocType
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (event.url.includes('installation-guide')) {
+        if (event.url.includes('installation-guide') || event.url.includes('fresh-install') || event.url.includes('yamls')) {
           this.selectedDocType = 'Installation Guide';
         } else {
           this.selectedDocType = 'User Documentation';
@@ -24,7 +24,7 @@ export class DocumentationComponent implements OnInit {
 
   ngOnInit() {
     // Set initial value based on route
-    if (this.router.url.includes('installation-guide')) {
+    if (this.router.url.includes('installation-guide') || this.router.url.includes('fresh-install') || this.router.url.includes('yamls')) {
       this.selectedDocType = 'Installation Guide';
     } else {
       this.selectedDocType = 'User Documentation';
@@ -93,8 +93,28 @@ export class DocumentationComponent implements OnInit {
   ];
 
   installationGuideMenu = [
-    { path: 'installation-guide', title: 'Installation Guide Home' },
-    // Add more items here if needed
+    {
+      title: 'Getting Started',
+      children: [
+        { path: 'installation-guide', title: 'Overview' },
+        { path: 'fresh-install', title: 'Fresh Installation' },
+        {
+          title: 'YAMLS',
+          children: [
+            { path: 'yamls/config', title: 'ConfigMap' },
+            { path: 'yamls/cache', title: 'Cache' },
+            { path: 'yamls/messaging', title: 'Messaging' },
+            { path: 'yamls/user', title: 'User' },
+            { path: 'yamls/sm', title: 'Service Manager (sm)' },
+            { path: 'yamls/mon', title: 'Monitoring (mon)' },
+            { path: 'yamls/bm', title: 'Base Manager (bm)' },
+            { path: 'yamls/common', title: 'Common' },
+            { path: 'yamls/gw', title: 'Gateway (gw)' },
+            { path: 'yamls/fm', title: 'File Manager (fm)' }
+          ]
+        }
+      ]
+    }
   ];
 
   onDocumentSelect(event: Event) {

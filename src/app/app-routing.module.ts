@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FreshInstallComponent } from './fresh-install/fresh-install.component';
+import { InsFreshInstallationComponent } from './documentation/pages/ins-fresh-installation/ins-fresh-installation.component';
 
 const routes: Routes = [
     { path: 'architecture', component: FreshInstallComponent },

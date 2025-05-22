@@ -58,9 +58,29 @@
                 </div>
                 <div class="nav-items" *ngIf="selectedDocType === 'Installation Guide'">
                     <ng-container *ngFor="let item of installationGuideMenu">
-                        <a [routerLink]="[item.path]" routerLinkActive="active" class="nav-link">
-                            {{item.title}}
-                        </a>
+                        <div class="nav-section">
+                            <h3 class="section-title">{{item.title}}</h3>
+                            <ng-container *ngFor="let child of item.children">
+                                <ng-container *ngIf="!child.children">
+                                    <a [routerLink]="[child.path]" 
+                                       routerLinkActive="active" 
+                                       class="nav-link">
+                                        {{child.title}}
+                                    </a>
+                                </ng-container>
+                                <ng-container *ngIf="child.children">
+                                    <div class="sub-section">
+                                        <h4 class="sub-section-title">{{child.title}}</h4>
+                                        <a *ngFor="let subItem of child.children"
+                                           [routerLink]="[subItem.path]"
+                                           routerLinkActive="active"
+                                           class="nav-link">
+                                            {{subItem.title}}
+                                        </a>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </div>
                     </ng-container>
                 </div>
             </div>
