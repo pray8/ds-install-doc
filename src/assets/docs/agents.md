@@ -1,6 +1,7 @@
 # What is an Agent?
 
-An Agent is an executable that facilitates secure file transfers and integrations between different systems.  
+An Agent is an executable that facilitates secure file transfers and integrations between different systems.
+
 It's a key part of the B2B (Business-to-Business) integration platform.
 
 → Agent is a _**M-SFT**_ which is Managed-Secure File Transfer.
@@ -8,7 +9,9 @@ It's a key part of the B2B (Business-to-Business) integration platform.
 ## 1. Core Purpose:
 
 - Acts as a secure bridge between different systems.
+
 - Manages file transfers and data exchange.
+
 - Provides integration capabilities between business systems.
 
 > In DNIO, agents are integrated with DataPipes to create RESTful APIs, enabling file transfers, modifications, and other data processing tasks.
@@ -17,48 +20,65 @@ It's a key part of the B2B (Business-to-Business) integration platform.
 
 - **Two ways to run an agent**:
 
-1. **Schedule**:  
+1. **Schedule**:
+
    Agent runs one time and then stops and does not run in the background.
 
-2. **Service**:  
+2. **Service**:
+
    Agent runs in the background
 
 ---
 
 ### Parallel uploads
 
-**Input type**: Boolean  
+**Input type**: Boolean
+
 → Uploading multiple files in one go, batch-wise, where it works as “fire and forget”.  
 If the agent is not able to process the number of files, the files will be processed in the immediate next batch.
 
 ---
 
 - **Heartbeat Interval**:
-  - → Input type: `Int` (time in seconds)  
+
+  - → Input type: `Int` (time in seconds)
+
   - → Specifies the frequency at which the server is hit.
 
 - **Max uploads**:
-  - → Input type: `Int`  
+
+  - → Input type: `Int`
+
   - → When `Parallel_uploads == true`, Max uploads specifies the number of files it can process at a time in a batch.
 
 - **Max downloads**:
-  - → Input type: `Int`  
+
+  - → Input type: `Int`
+
   - → When `Parallel_uploads == true`, Max downloads specifies the number of files it can download at a time in a batch.
 
 - **Poller interval**:
-  - → Input type: `Int` (time in seconds)  
+
+  - → Input type: `Int` (time in seconds)
+
   - → Specifies the batch duration.
 
-  **Eg:**  
-  **Case**: File Upload, `Parallel uploads: true`, `Heartbeat interval: 10`, `Poller interval: 10`, `Max uploads: 10`  
+  **Eg:** 
+
+  **Case**: File Upload, `Parallel uploads: true`, `Heartbeat interval: 10`, `Poller interval: 10`,`Max uploads: 10`
+  
   → In this particular case, the agent uploads 10 files at a time within 10 seconds. If all the files are not uploaded, the remaining files will be uploaded in the next batch.
 
 - **Upload retry**:
-  - → Input type: `Int`  
+
+  - → Input type: `Int`
+
   - → Specifies the number of times the agent will retry the upload in case of any failure.
 
 - **Download retry**:
-  - → Input type: `Int`  
+
+  - → Input type: `Int`
+
   - → Specifies the number of times the agent will retry the Download in case any failure in upload, eg: server unreachable (Internal server error: 500)
 
 # How to download an agent?
@@ -82,16 +102,21 @@ When we download and extract an agent, we can see all the below folders -
 1. BIN FOLDER : This folder contains the executable, which is the most critical component of an agent, serving as its core intelligence or "brain."
 
 2. CONF FOLDER : This folder contains the configuration of the agent, which includes details that are necessary to run an agent.
+
 <img src="/app/assets/docs/images/agents_3.png" alt="agents_3">
 
-3.DATA FOLDER : This folder contains subfolders named after the DataPipe that utilizes this specific agent, it further contains folders which are 
+3.DATA FOLDER : This folder contains subfolders named after the DataPipe that utilizes this specific agent, it further contains folders which are -
+
   1. Input  The default input folder. When a file is placed in this folder, the agent uploads it to a flow if the DataPipe is correctly configured.
+
   2. Output : The default output folder. When the agent downloads a file, it is stored in this directory.
+
   3.Processing : When the file is in processing state, file can be seen in the processing folder.
 
 4.LOGS FOLDER : This folder contains the log files of the agent
 
-# Steps to run an agent in Linux: 
+# Steps to run an agent in Linux:
+
 ## THERE ARE TWO WAYS TO RUN A AGENT : 
 
 ## FIRST WAY
@@ -114,14 +139,21 @@ unzip <agent.zip> -d <destination-folder>
   Once authenticated, the agent will start running.
 
 ## SECOND WAY (RUNS AGENT IN THE BACKGROUND, DOES NOT STOP UNTIL MANUALLY INTERRUPTED)
+
   ### 1. Download and extract the archive
-    unzip <agent.zip> -d <destination-folder>
+
+      unzip <agent.zip> -d <destination-folder>
+
   ### 2. Grant Execution Permissions
+
     chmod +x stop-services.sh
     chmod +x start-services.sh
     chmod +x start-agent.sh
-  ### 3. Create a Background service in linux : 
+
+  ### 3. Create a Background service in linux :
+
     1.Navigate to  /home/.config/systemd/user  or ./home/etc/systemd/user depending on    the system configuration.
+
     2. Create a Background service : (nano – can be used instead of viorvim)
       vi <service-name>.service
   ### 4. Write a bg- service for the agent you want to run as an agent
@@ -140,9 +172,12 @@ unzip <agent.zip> -d <destination-folder>
     [Install]
     WantedBy=multi-user.target
 
-  ### 5. Enable the bg-service that is created 
+  ### 5. Enable the bg-service that is created
+
   <img src="/app/assets/docs/images/agents_3.png" alt="agents_4">
+
   ### 6. Start the bg-service
+
   <img src="/app/assets/docs/images/agents_3.png" alt="agents_5">
 
     To stop the running agent : systemctl --user stop <your-service>.service can be used.
