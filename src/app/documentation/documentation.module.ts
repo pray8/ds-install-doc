@@ -18,6 +18,7 @@ import { AppPanelComponent } from './pages/app-panel/app-panel.component';
 import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
 import { InsFreshInstallationComponent } from './pages/ins-fresh-installation/ins-fresh-installation.component';
 import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
+import { ApiKeysComponent } from './pages/api-keys/api-keys.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
     AppPanelComponent,
     InstallationGuideComponent,
     InsFreshInstallationComponent,
-    InsYamlsComponent,  
+    InsYamlsComponent,
+    ApiKeysComponent
   ],
   imports: [
     CommonModule,

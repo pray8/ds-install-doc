@@ -89,7 +89,7 @@ If the agent is not able to process the number of files, the files will be proce
 - <img src="/app/assets/docs/images/agents_0.png" alt="Agents 1" /> -->
 
 
-<div style="display: flex; gap: 10px;">
+<div style="display: flex; gap: 10px;" align="center">
   <img src="/app/assets/docs/images/agents_0.png" alt="agents_0" style="width: 45%;">
   <img src="/app/assets/docs/images/agents_1.png" alt="agents_1" style="width: 45%;">
 </div>
@@ -97,13 +97,17 @@ If the agent is not able to process the number of files, the files will be proce
 # What are the folders that are inside a agent?
 When we download and extract an agent, we can see all the below folders -
 
-<img src="/app/assets/docs/images/agents_2.png" alt="agents_2">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_2.png" alt="agents">
+</p>
 
 1. BIN FOLDER : This folder contains the executable, which is the most critical component of an agent, serving as its core intelligence or "brain."
 
 2. CONF FOLDER : This folder contains the configuration of the agent, which includes details that are necessary to run an agent.
 
-<img src="/app/assets/docs/images/agents_3.png" alt="agents_3">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_3.png" alt="agents">
+</p>
 
 3.DATA FOLDER : This folder contains subfolders named after the DataPipe that utilizes this specific agent, it further contains folders which are -
 
@@ -174,11 +178,15 @@ unzip <agent.zip> -d <destination-folder>
 
   ### 5. Enable the bg-service that is created
 
-  <img src="/app/assets/docs/images/agents_3.png" alt="agents_4">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_4.png" alt="agents">
+</p>
 
   ### 6. Start the bg-service
 
-  <img src="/app/assets/docs/images/agents_3.png" alt="agents_5">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_5.png" alt="agents">
+</p>
 
     To stop the running agent : systemctl --user stop <your-service>.service can be used.
     To check the status of agent : systemctl --user status dnio-agent can be used.
@@ -231,7 +239,9 @@ Agent Receive node :
 
 Configurations that can be done in the Agent receive node :
 
-<img src="/app/assets/docs/images/agents_3.png" alt="agents_6">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_6.png" alt="agents">
+</p>
 
 1. Unique txn : It checks for duplicate files, and if any are found, they are moved to the ERROR folder.
 
@@ -263,7 +273,9 @@ Configurations that can be done in the Agent receive node :
 
 ● Configurations that can be done in agent send node :
 
-<img src="/app/assets/docs/images/agents_3.png" alt="agents_7">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_7.png" alt="agents">
+</p>
 
 ● Output Directories: 
 
@@ -297,7 +309,9 @@ Configurations that can be done in the Agent receive node :
 
 3. This node typically acts as the entry point for flows that rely on file-based triggers
 
-<img src="/app/assets/docs/images/agents_3.png" alt="agents_8">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_8.png" alt="agents">
+</p>
 
 Agents : Select the agent that will run for this action
 
@@ -305,7 +319,9 @@ Input directories : Select the folder which the agent will be polling the files 
 
 Flows : Select the flow/flows to which the agent will send the current picked file to.
 
-<img src="/app/assets/docs/images/agents_3.png" alt="agents_9">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_9.png" alt="agents">
+</p>
 
 1. pickupFiles : File extensions/ file name.
 
@@ -316,13 +332,17 @@ Flows : Select the flow/flows to which the agent will send the current picked fi
 
 ● To reduce redundancy and optimize resource consumption, we’ve enhanced Datapipes by enabling file transfers to be configured as Routes within Agents. Previously, each flow creation would spin up a separate pod and consume memory unnecessarily. With this implementation, we’ve streamlined the process—eliminating the need for additional pods and significantly improving memory efficiency.
 
-<img src="/app/assets/docs/images/agents_3.png" alt="agents_10">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_10.png" alt="agents">
+</p>
 
 ● Routes establish direct paths between Agents, enabling seamless and memory-efficient file transfers from a single input directory to multiple destination directories.
 
 ### CNC : 
 ● The CNC executes the selected command via the designated Agent, operating directly on the folders associated with that Agent on the host machine.
 
-<img src="/app/assets/docs/images/agents_3.png" alt="agents_11">
+<p align="center">
+  <img src="/app/assets/docs/images/agents_11.png" alt="agents">
+</p>
 
 These are the Linux commands that will execute on the host machine and provide the results in the Actions tab.
