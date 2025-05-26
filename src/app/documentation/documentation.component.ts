@@ -77,6 +77,7 @@ export class DocumentationComponent implements OnInit {
             { path: 'bots', title: 'Bots' },
             { path: 'groups', title: 'Groups' },
             { path: 'api-keys', title: 'API Keys' },
+            { path: 'alerts', title: 'Alerts' },
             { path: 'insights', title: 'Insights' }
           ]
         }
