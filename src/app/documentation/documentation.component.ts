@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
+interface MenuItem {
+  title: string;
+  children: (MenuItem | MenuLink)[];
+}
+
+
+interface MenuLink {
+  path: string;
+  title: string;
+}
+
 @Component({
   selector: 'app-documentation',
   templateUrl: './documentation.component.html',
@@ -31,14 +42,14 @@ export class DocumentationComponent implements OnInit {
     }
   }
 
-  menuItems = [
+  menuItems: MenuItem[] = [
     {
       title: 'Introduction',
       children: [
         { path: 'overview', title: 'Overview' },
         { path: 'key-features', title: 'Key Features' },
         { path: 'system-requirements', title: 'System Requirements' },
-        { path: 'techstacks', title: 'Techstacks and Components' }
+        // { path: 'techstacks', title: 'Techstacks and Components' }
       ]
     },
     {
@@ -50,7 +61,7 @@ export class DocumentationComponent implements OnInit {
     {
       title: 'Studio',
       children: [
-        { path: 'author-overview', title: 'Overview' },
+        // { path: 'author-overview', title: 'Overview' },
         {
           title: 'DATA',
           children: [
@@ -61,7 +72,7 @@ export class DocumentationComponent implements OnInit {
         {
           title: 'INTEGRATION',
           children: [
-            { path: 'data-pipes', title: 'Data Pipes' },
+            { path: 'pipes', title: 'Pipes' },
             { path: 'data-formats', title: 'Data Formats' },
             { path: 'agents', title: 'Agents' },
             { path: 'plugins', title: 'Plugins' },
@@ -86,7 +97,7 @@ export class DocumentationComponent implements OnInit {
     {
       title: "OpsCenter",
       children: [
-        { path: 'appcenter-overview', title: 'Overview' },
+        // { path: 'appcenter-overview', title: 'Overview' },
         { path: 'data-services', title: 'Data Services' },
         { path: 'workflow', title: 'Workflow' },
         { path: 'interactions', title: 'Interactions' }
@@ -127,5 +138,13 @@ export class DocumentationComponent implements OnInit {
     } else {
       this.router.navigate(['docs/overview']);
     }
+  }
+
+  isMenuItem(item: MenuItem | MenuLink): item is MenuItem {
+    return 'children' in item;
+  }
+
+  isMenuLink(item: MenuItem | MenuLink): item is MenuLink {
+    return 'path' in item;
   }
 } 

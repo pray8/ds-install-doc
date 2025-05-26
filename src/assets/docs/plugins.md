@@ -1,5 +1,7 @@
-**Plugins**
-# Introduction
+# Plugins
+
+
+## Introduction
 
 Plugins in datanimbus.io  allow you to create custom nodes for your data pipes, enabling integration with external systems or defining bespoke processing logic. Whether it's pulling data from a Google Blob or listening to a Kafka topic, plugins are powerful building blocks that help you tailor data pipes to your exact needs.
 

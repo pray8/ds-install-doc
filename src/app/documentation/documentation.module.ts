@@ -21,7 +21,12 @@ import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
 import { ApiKeysComponent } from './pages/api-keys/api-keys.component';
 import { DeploymentsComponent } from './pages/deployments/deployments.component';
 import { AlertsComponent } from './pages/alerts/alerts.component';
-
+import { SystemRequirementsComponent } from './pages/system-requirements/system-requirements.component';
+import { PipesComponent } from './pages/pipes/pipes.component';
+import { UsersComponent } from './pages/users/users.component';
+import { BotsComponent } from './pages/bots/bots.component';
+import { GroupsComponent } from './pages/groups/groups.component';
+import { InsightsComponent } from './pages/insights/insights.component';
 
 
 @NgModule({
@@ -42,7 +47,13 @@ import { AlertsComponent } from './pages/alerts/alerts.component';
     InsYamlsComponent,
     ApiKeysComponent,
     DeploymentsComponent,
-    AlertsComponent
+    AlertsComponent,
+    SystemRequirementsComponent,
+    PipesComponent,
+    UsersComponent,
+    BotsComponent,
+    GroupsComponent,
+    InsightsComponent
   ],
   imports: [
     CommonModule,

@@ -1,95 +1,69 @@
 <div class="documentation-container">
     <!-- Top Navigation Bar -->
     <nav class="top-nav">
-        <div class="logo-section">
-            <img src="assets/img/DataNimbus_Logo_Blue.svg"alt="Finhub" class="logo">
+      <div class="logo-section">
+        <img src="assets/img/DataNimbus_Logo_Blue.svg" alt="Finhub" class="logo" />
+      </div>
+  
+      <div class="right-section">
+        <div class="version-info">
+          <select class="version-select">
+            <option class="version-label">v3.2.x</option>
+          </select>
+          <select class="document-select" [(ngModel)]="selectedDocType" (change)="onDocumentSelect($event)">
+            <option>User Documentation</option>
+            <option>Installation Guide</option>
+          </select>
         </div>
-        
-        <div class="right-section">
-            <div class="version-info">
-                <select class="version-select">
-                    <option class="version-label">v3.2.x</option>
-                </select>
-                <select class="document-select" [(ngModel)]="selectedDocType" (change)="onDocumentSelect($event)">
-                    <option>User Documentation</option>
-                    <!-- <option>Developer Guide</option> -->
-                    <option>Installation Guide</option>
-                </select>
-            </div>
-            <div class="search-container">
-                <input type="text" placeholder="Search" class="search-input">
-                <span class="search-shortcut">CTRL-K</span>
-            </div>
-            <button class="theme-toggle">🌙</button>
+        <div class="search-container">
+          <input type="text" placeholder="Search" class="search-input" />
+          <span class="search-shortcut">CTRL-K</span>
         </div>
+        <button class="theme-toggle">🌙</button>
+      </div>
     </nav>
-
+  
     <!-- Main Content Area -->
     <div class="main-content">
-        <!-- Sidebar -->
-        <nav class="sidebar">
-            <div class="nav-content">
-                <div class="nav-items" *ngIf="selectedDocType === 'User Documentation'">
-                    <ng-container *ngFor="let item of menuItems">
-                        <div class="nav-section">
-                            <h3 class="section-title">{{item.title}}</h3>
-                            <ng-container *ngFor="let child of item.children">
-                                <ng-container *ngIf="!child.children">
-                                    <a [routerLink]="[child.path]" 
-                                       routerLinkActive="active" 
-                                       class="nav-link">
-                                        {{child.title}}
-                                    </a>
-                                </ng-container>
-                                <ng-container *ngIf="child.children">
-                                    <div class="sub-section">
-                                        <h4 class="sub-section-title">{{child.title}}</h4>
-                                        <a *ngFor="let subItem of child.children"
-                                           [routerLink]="[subItem.path]"
-                                           routerLinkActive="active"
-                                           class="nav-link">
-                                            {{subItem.title}}
-                                        </a>
-                                    </div>
-                                </ng-container>
-                            </ng-container>
-                        </div>
-                    </ng-container>
-                </div>
-                <div class="nav-items" *ngIf="selectedDocType === 'Installation Guide'">
-                    <ng-container *ngFor="let item of installationGuideMenu">
-                        <div class="nav-section">
-                            <h3 class="section-title">{{item.title}}</h3>
-                            <ng-container *ngFor="let child of item.children">
-                                <ng-container *ngIf="!child.children">
-                                    <a [routerLink]="[child.path]" 
-                                       routerLinkActive="active" 
-                                       class="nav-link">
-                                        {{child.title}}
-                                    </a>
-                                </ng-container>
-                                <ng-container *ngIf="child.children">
-                                    <div class="sub-section">
-                                        <h4 class="sub-section-title">{{child.title}}</h4>
-                                        <a *ngFor="let subItem of child.children"
-                                           [routerLink]="[subItem.path]"
-                                           routerLinkActive="active"
-                                           class="nav-link">
-                                            {{subItem.title}}
-                                        </a>
-                                    </div>
-                                </ng-container>
-                            </ng-container>
-                        </div>
-                    </ng-container>
-                </div>
-            </div>
-        </nav>
-        <!-- Content Area -->
-        <main class="content">
-            <div class="content-body">
-                <router-outlet></router-outlet>
-            </div>
-        </main>
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="nav-content">
+          <div class="nav-items">
+            <ng-container *ngFor="let item of selectedDocType === 'Installation Guide' ? installationGuideMenu : menuItems">
+              <div class="nav-section">
+                <h3 class="section-title">{{ item.title }}</h3>
+  
+                <ng-container *ngFor="let child of item.children">
+                  <ng-container *ngIf="isMenuItem(child); else singleLink">
+                    <div class="submenu">
+                      <div class="submenu-title">{{ child.title }}</div>
+                      <div class="submenu-items">
+                        <ng-container *ngFor="let subItem of child.children">
+                          <a *ngIf="isMenuLink(subItem)" [routerLink]="['/docs', subItem.path]" routerLinkActive="active" class="nav-link">
+                            {{ subItem.title }}
+                          </a>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-template #singleLink>
+                    <a *ngIf="isMenuLink(child)" [routerLink]="['/docs', child.path]" routerLinkActive="active" class="nav-link">
+                      {{ child.title }}
+                    </a>
+                  </ng-template>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </nav>
+  
+      <!-- Content Area -->
+      <main class="content">
+        <div class="content-body">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
     </div>
-</div>
+  </div>
+  

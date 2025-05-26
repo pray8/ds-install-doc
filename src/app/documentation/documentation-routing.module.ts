@@ -13,9 +13,16 @@ import { AppPanelComponent } from './pages/app-panel/app-panel.component';
 import { ApiKeysComponent } from './pages/api-keys/api-keys.component';
 import { DeploymentsComponent } from './pages/deployments/deployments.component';
 import { AlertsComponent } from './pages/alerts/alerts.component';
+import { SystemRequirementsComponent } from './pages/system-requirements/system-requirements.component';
 import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
 import { InsFreshInstallationComponent } from './pages/ins-fresh-installation/ins-fresh-installation.component';
 import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
+import { PipesComponent } from './pages/pipes/pipes.component';
+import { UsersComponent } from './pages/users/users.component';
+import { BotsComponent } from './pages/bots/bots.component';
+import { GroupsComponent } from './pages/groups/groups.component';
+import { InsightsComponent } from './pages/insights/insights.component';
+
 
 const routes: Routes = [
   {
@@ -85,6 +92,36 @@ const routes: Routes = [
       {
         path: 'alerts',
         component: AlertsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'pipes',
+        component: PipesComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'bots',
+        component: BotsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'groups',
+        component: GroupsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'insights',
+        component: InsightsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'system-requirements',
+        component: SystemRequirementsComponent,
         pathMatch: 'full'
       },
       {
