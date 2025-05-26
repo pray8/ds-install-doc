@@ -11,6 +11,7 @@ import { PluginsComponent } from './pages/plugins/plugins.component';
 import { FormulasComponent } from './pages/formulas/formulas.component';
 import { AppPanelComponent } from './pages/app-panel/app-panel.component';
 import { ApiKeysComponent } from './pages/api-keys/api-keys.component';
+import { DeploymentsComponent } from './pages/deployments/deployments.component';
 import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
 import { InsFreshInstallationComponent } from './pages/ins-fresh-installation/ins-fresh-installation.component';
 import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
@@ -73,6 +74,11 @@ const routes: Routes = [
       {
         path: 'api-keys',
         component: ApiKeysComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'deployments',
+        component: DeploymentsComponent,
         pathMatch: 'full'
       },
       {

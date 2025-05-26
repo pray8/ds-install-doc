@@ -72,6 +72,7 @@ export class DocumentationComponent implements OnInit {
           title: 'MANAGEMENT',
           children: [
             { path: 'app-panel', title: 'App Panel' },
+            { path: 'deployments', title: 'Deployments' },
             { path: 'users', title: 'Users' },
             { path: 'bots', title: 'Bots' },
             { path: 'groups', title: 'Groups' },
