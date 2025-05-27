@@ -13,6 +13,7 @@ import { AppPanelComponent } from './pages/app-panel/app-panel.component';
 import { InstallationGuideComponent } from './pages/installation-guide/installation-guide.component';
 import { InsFreshInstallationComponent } from './pages/ins-fresh-installation/ins-fresh-installation.component';
 import { InsYamlsComponent } from './pages/ins-yamls/ins-yamls.component';
+import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,10 @@ const routes: Routes = [
       {
         path: 'yamls/:type',
         component: InsYamlsComponent
+      },
+      {
+        path: 'mongo',
+        component: InsHowToComponent,
       },
       {
         path: 'yamls',
