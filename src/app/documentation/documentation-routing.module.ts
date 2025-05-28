@@ -23,6 +23,7 @@ import { BotsComponent } from './pages/bots/bots.component';
 import { GroupsComponent } from './pages/groups/groups.component';
 import { InsightsComponent } from './pages/insights/insights.component';
 
+import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
 
 const routes: Routes = [
   {
@@ -137,6 +138,10 @@ const routes: Routes = [
       {
         path: 'yamls/:type',
         component: InsYamlsComponent
+      },
+      {
+        path: 'mongo',
+        component: InsHowToComponent,
       },
       {
         path: 'yamls',

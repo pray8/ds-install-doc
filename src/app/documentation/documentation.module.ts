@@ -27,6 +27,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { BotsComponent } from './pages/bots/bots.component';
 import { GroupsComponent } from './pages/groups/groups.component';
 import { InsightsComponent } from './pages/insights/insights.component';
+import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
 
 
 @NgModule({
@@ -53,7 +54,9 @@ import { InsightsComponent } from './pages/insights/insights.component';
     UsersComponent,
     BotsComponent,
     GroupsComponent,
-    InsightsComponent
+    InsightsComponent,
+    InsYamlsComponent,  
+    InsHowToComponent
   ],
   imports: [
     CommonModule,

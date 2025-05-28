@@ -24,7 +24,7 @@ export class DocumentationComponent implements OnInit {
     // Listen to route changes to update selectedDocType
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (event.url.includes('installation-guide') || event.url.includes('fresh-install') || event.url.includes('yamls')) {
+        if (event.url.includes('installation-guide') || event.url.includes('fresh-install') || event.url.includes('yamls') || event.url.includes('mongo')) {
           this.selectedDocType = 'Installation Guide';
         } else {
           this.selectedDocType = 'User Documentation';
@@ -35,7 +35,7 @@ export class DocumentationComponent implements OnInit {
 
   ngOnInit() {
     // Set initial value based on route
-    if (this.router.url.includes('installation-guide') || this.router.url.includes('fresh-install') || this.router.url.includes('yamls')) {
+    if (this.router.url.includes('installation-guide') || this.router.url.includes('fresh-install') || this.router.url.includes('yamls') || this.router.url.includes('mongo')) {
       this.selectedDocType = 'Installation Guide';
     } else {
       this.selectedDocType = 'User Documentation';
@@ -125,6 +125,10 @@ export class DocumentationComponent implements OnInit {
             { path: 'yamls/gw', title: 'Gateway (gw)' },
             { path: 'yamls/fm', title: 'File Manager (fm)' }
           ]
+        },
+        {
+          title: 'How To',
+          children: [{path : 'mongo', title: 'change MongoDB connection'}]
         }
       ]
     }
