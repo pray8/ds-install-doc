@@ -153,7 +153,7 @@ mkdir yamls
 please note these are the yamls required for DNIO 3.2.X,
 for detailed information about each YAML file, refer to the YAML section of the documentation:
 
-1. [cache](/app/docs/yamls/cache.md)
+1. [cache](/app/docs/yamls/cache)
 2. [messaging](/app/docs/yamls/messaging)
 3. [user](/app/docs/yamls/user)
 4. [sm](/app/docs/yamls/sm)

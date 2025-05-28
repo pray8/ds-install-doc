@@ -39,7 +39,7 @@
                       <div class="submenu-title">{{ child.title }}</div>
                       <div class="submenu-items">
                         <ng-container *ngFor="let subItem of child.children">
-                          <a *ngIf="isMenuLink(subItem)" [routerLink]="['/docs', subItem.path]" routerLinkActive="active" class="nav-link">
+                          <a *ngIf="isMenuLink(subItem)" [routerLink]="[subItem.path]" routerLinkActive="active" class="nav-link">
                             {{ subItem.title }}
                           </a>
                         </ng-container>
@@ -47,7 +47,7 @@
                     </div>
                   </ng-container>
                   <ng-template #singleLink>
-                    <a *ngIf="isMenuLink(child)" [routerLink]="['/docs', child.path]" routerLinkActive="active" class="nav-link">
+                    <a *ngIf="isMenuLink(child)" [routerLink]="[child.path]" routerLinkActive="active" class="nav-link">
                       {{ child.title }}
                     </a>
                   </ng-template>
