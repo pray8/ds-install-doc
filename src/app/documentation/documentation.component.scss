@@ -41,10 +41,12 @@
         }
 
         .right-section {
-            margin-left: auto;
             display: flex;
             align-items: center;
+            justify-content: center;
+            width: 100%;
             gap: 2rem; // Increased gap between elements
+            margin-left: 0; // Remove auto margin since we're centering
 
             .version-info {
                 display: flex;

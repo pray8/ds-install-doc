@@ -22,7 +22,10 @@ import { UsersComponent } from './pages/users/users.component';
 import { BotsComponent } from './pages/bots/bots.component';
 import { GroupsComponent } from './pages/groups/groups.component';
 import { InsightsComponent } from './pages/insights/insights.component';
-
+import { OpscenterAgentsComponent } from './pages/opscenter-agents/opscenter-agents.component';
+import { OpscenterServicesComponent } from './pages/opscenter-services/opscenter-services.component';
+import { OpscenterInteractionsComponent } from './pages/opscenter-interactions/opscenter-interactions.component';
+import { OpscenterWorkflowsComponent } from './pages/opscenter-workflows/opscenter-workflows.component';
 import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
 
 const routes: Routes = [
@@ -123,6 +126,26 @@ const routes: Routes = [
       {
         path: 'system-requirements',
         component: SystemRequirementsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'opscenter-services',
+        component: OpscenterServicesComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'opscenter-interactions',
+        component: OpscenterInteractionsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'opscenter-agents',
+        component: OpscenterAgentsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'opscenter-workflows',
+        component: OpscenterWorkflowsComponent,
         pathMatch: 'full'
       },
       {

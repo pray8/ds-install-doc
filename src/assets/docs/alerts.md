@@ -33,18 +33,14 @@ The Alerts feature also includes a dedicated UI for configuration, management, a
   <img src="/app/assets/docs/images/alerts_0.png" alt="alerts">
 </p>
 
-    2. This would open the list page where the user can see the list of already created alerts as well as a list of jobs that have run. The user can clone or delete these alerts as well.
-
-
 <p align="center">
-  <img src="/app/assets/docs/images/alerts_1.png" alt="alerts">
+  <img src="/app/assets/docs/images/alerts_01.png" alt="alerts">
 </p>
+
+    2. This would open the list page where the user can see the list of already created alerts as well as a list of jobs that have run. The user can clone or delete these alerts as well.
 
     3. Clicking on New would open a side window for the user to provide the details to configure a New Alert.
 
-<p align="center">
-  <img src="/app/assets/docs/images/alerts_2.png" alt="alerts">
-</p>
 
     5. The user will be redirected to the details page where they would get to view the details or modify anything once they click on edit option.
 
@@ -95,7 +91,7 @@ The Alerts feature also includes a dedicated UI for configuration, management, a
     7. The options tab would list down all the options that were configured.
 
 <p align="center">
-  <img src="/app/assets/docs/images/alerts_3.png" alt="alerts">
+  <img src="/app/assets/docs/images/alerts_02.png" alt="alerts">
 </p>
 
     8. In the Config tab, the user can then choose where the alerts need to be set for Data Services,
@@ -116,5 +112,5 @@ open the payload as well as the response logs for the respective job.
   <img src="/app/assets/docs/images/alerts_6.png" alt="alerts">
 </p>
 
-    10. In the groups, there is an option for the user to control the permissions to view or manage
+10. In the groups, there is an option for the user to control the permissions to view or manage
  the alerts. The jobs will be visible for the view access as well since these are non-editable.

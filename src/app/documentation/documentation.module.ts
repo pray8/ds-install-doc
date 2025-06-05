@@ -28,7 +28,10 @@ import { BotsComponent } from './pages/bots/bots.component';
 import { GroupsComponent } from './pages/groups/groups.component';
 import { InsightsComponent } from './pages/insights/insights.component';
 import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
-
+import { OpscenterAgentsComponent } from './pages/opscenter-agents/opscenter-agents.component';
+import { OpscenterServicesComponent } from './pages/opscenter-services/opscenter-services.component';
+import { OpscenterInteractionsComponent } from './pages/opscenter-interactions/opscenter-interactions.component';
+import { OpscenterWorkflowsComponent } from './pages/opscenter-workflows/opscenter-workflows.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,11 @@ import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
     GroupsComponent,
     InsightsComponent,
     InsYamlsComponent,  
-    InsHowToComponent
+    InsHowToComponent,
+    OpscenterAgentsComponent,
+    OpscenterServicesComponent,
+    OpscenterInteractionsComponent,
+    OpscenterWorkflowsComponent
   ],
   imports: [
     CommonModule,

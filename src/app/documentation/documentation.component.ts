@@ -98,9 +98,10 @@ export class DocumentationComponent implements OnInit {
       title: "OpsCenter",
       children: [
         // { path: 'appcenter-overview', title: 'Overview' },
-        { path: 'data-services', title: 'Data Services' },
-        { path: 'workflow', title: 'Workflow' },
-        { path: 'interactions', title: 'Interactions' }
+        { path: 'opscenter-services', title: 'Data Services' },
+        { path: 'opscenter-interactions', title: 'Interactions' },
+        { path: 'opscenter-agents', title: 'Agents' },
+        { path: 'opscenter-workflows', title: 'Workflows' }
       ]
     }
   ];
