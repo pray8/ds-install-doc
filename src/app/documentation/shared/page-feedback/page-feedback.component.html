@@ -6,8 +6,14 @@
   <div class="feedback-section">
     <p>Did this page help you?</p>
     <div class="feedback-buttons">
-      <button class="btn-feedback">👍 Yes</button>
-      <button class="btn-feedback">👎 No</button>
+      <button class="btn-feedback" (click)="onYesClick()">👍 Yes</button>
+      <button class="btn-feedback" (click)="onNoClick()">👎 No</button>
+    </div>
+    <div class="feedback-counts">
+      <p>{{yesCount}} people found this helpful</p>
+    </div>
+    <div class="thanks-message" *ngIf="showThanks">
+      <p>Thanks for your feedback!</p>
     </div>
   </div>
 </div>

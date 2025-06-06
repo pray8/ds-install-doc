@@ -24,19 +24,58 @@
       display: flex;
       gap: 1rem;
       justify-content: center;
+      margin-top: 1rem;
 
       .btn-feedback {
         padding: 0.5rem 1rem;
-        background: #21262d;
-        border: 1px solid #30363d;
+        border: none;
         border-radius: 6px;
-        color: #c9d1d9;
         cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.2s ease;
 
         &:hover {
-          background: #30363d;
+          opacity: 0.9;
+        }
+
+        &:first-child {
+          background: #2ea44f;
+          color: white;
+        }
+
+        &:last-child {
+          background: #bd2c00;
+          color: white;
         }
       }
     }
+
+    .feedback-counts {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #8b949e;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .thanks-message {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background: #2ea44f;
+      border-radius: 6px;
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
   }
-} 
+}

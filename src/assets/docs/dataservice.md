@@ -1,6 +1,6 @@
 # DNIO Data Services Overview
 
-DNIO's Data Services provide a powerful and intuitive way to interact with your MongoDB collections, offering instant CRUD (Create, Read, Update, Delete) APIs out-of-the-box. This feature significantly reduces the time and effort required to build backend functionalities that rely on data storage and retrieval.
+DNIO's Data Services provide a powerful and intuitive way to interact with MongoDB collections, offering instant CRUD (Create, Read, Update, Delete) APIs out-of-the-box. This feature significantly reduces the time and effort required to build backend functionalities that rely on data storage and retrieval.
 
 ---
 
@@ -10,157 +10,99 @@ Let's walk through the different tabs within the Data Services configuration in 
 
 ### 1. Design: Define Your Data Model
 
-  ● The **Design** tab is where you define the schema (structure) of your data within the MongoDB collection.
-
-  ● Attributes: The Building Blocks
-    ◦ The main area of the Design tab lists the Attributes that you have defined for your Data Service. Attributes are essentially the fields or columns of your data records.
-
-    ◦ In the sampleexample screenshot, you see attributes like ID, name, and place already defined.
-
-    ◦ You can add new attributes by clicking the "+ Add Attribute" button.
-
-  ● Configuring Attributes (Basic Properties Panel)
-    ◦ When you select an existing attribute (like 'name' in the "sample" dataservice screenshot) or add a new one, a side panel appears labelled "Basic Properties".
-
-    ◦ This panel allows you to configure the specific details of the selected attribute. Key configurations include:
-Selecting or adding an attribute opens the **Basic Properties** side panel.
-
-      ▪ Key / Name: This is the unique identifier for the attribute within the Data Service
-       schema. It's the programmatic name you will use to refer to this piece of data.
-      ▪ Type: This is the most critical setting. It defines the kind of data that the
-       attribute can store. Below are the variety of available types you can choose from:
-
-        ● Text: For storing text strings. Subtypes shown include standard Text, Long Text
-         (for larger amounts of text), Rich Text (likely for formatted text), Email (text
-          specifically for email addresses), and List of values (allowing selection from a predefined list of text options).
-
-        ● Number: For storing numerical data. Subtypes include general Number, List of
-         values (for predefined numbers), and Currency (for numerical values representing monetary amounts).
-
-        ● TrueFalse: For storing boolean values (true or false).
-
-        ● Date / Date & Time: For storing date-only or date-and-time values.
-
-        ● Group: Likely used to group related attributes together logically within the design.
-
-        ● Collection: Possibly for storing arrays or lists of values or sub-objects within a single attribute.
-
-        ● Location: For storing geographical location data.
-
-        ● File: For linking or embedding file attachments with a record.
-
-        ● User: For referencing platform users.
-
-        ● Relation: This is a powerful type used to create links or relationships between a record in this Data Service and records in
-         another Data Service within same App. The "Relates To" dropdown allows you to select the target Data Service
-          (e.g., accounts, hsbc, etc.) that this attribute will link to.This is how you build relationships between different 
-          data entities in your App. You can also configure if the relation is Required, Unique, etc.
+- The **Design** tab is where the schema (structure) of the data within the MongoDB collection is defined.
+- ### Attributes: The Building Blocks
+  - The main area of the Design tab lists the Attributes defined for the Data Service. Attributes are essentially the fields or columns of the data records.
+  - In the sampleexample screenshot, attributes like ID, name, and place are defined.
+  - New attributes can be added by clicking the "+ Add Attribute" button.
+- ### Configuring Attributes (Basic Properties Panel)
+  - When an existing attribute is selected or a new one is added, a side panel appears labelled "Basic Properties".
+  - This panel enables configuration of the specific details of the selected attribute. Key configurations include:
+    - Key / Name: This is the unique identifier for the attribute within the Data Service schema. It serves as the programmatic name for referencing this piece of data.
+    - Type: This is the most critical setting. It defines the kind of data that the attribute can store. Below are the variety of available types to choose from:
+      - *Text*: For storing text strings. Subtypes shown include standard Text, Long Text (for larger amounts of text), Rich Text (likely for formatted text), Email (text specifically for email addresses), and List of values (allowing selection from a predefined list of text options).
+      - *Number*: For storing numerical data. Subtypes include general Number, List of values (for predefined numbers), and Currency (for numerical values representing monetary amounts).
+      - *True / False*: For storing boolean values (true or false).
+      - *Date / Date & Time*: For storing date-only or date-and-time values.
+      - *Group*: Likely used to group related attributes together logically within the design.
+      - *Collection*: Possibly for storing arrays or lists of values or sub-objects within a single attribute.
+      - *Location*: For storing geographical location data.
+      - *File*: For linking or embedding file attachments with a record.
+      - *User*: For referencing platform users.
+      - *Relation*: This is a powerful type used to create links or relationships between records in different Data Services within the same App. The "Relates To" dropdown allows selection of the target Data Service (e.g., accounts, hsbc, etc.) that this attribute will link to. This enables building relationships between different data entities in the App. The relation can be configured as Required, Unique, etc.
+    - *Validations and Advanced Properties*:
+      - Below the basic properties, the panel shows sections for Validations (like Pattern using Regular Expressions, Min Length, Max Length). These enable setting rules for the data entered into the attribute at runtime, ensuring data quality.
+      - Advance Properties and Default Value options are also visible, offering further control over attribute behavior.
 
 <p align="center">
   <img src="/app/assets/docs/images/dataservice_0.png" alt="dataservice">
   Demonstration - 01
 </p>
 
-      ● Validations and Advanced Properties:
-
-        ◦ Below the basic properties, the panel also shows sections for Validations (like Pattern using Regular Expressions,
-         Min Length, Max Length). These allow you to set rules for the data entered into this attribute at runtime, ensuring data quality.
-
-        ◦ Advance Properties and Default Value options are also visible, offering further control over attribute behavior.
-
 ### 2. Integration : Implement Data Hooks
 
-  ● The Integration tab allows you to configure Data Hooks, which are custom logic points that execute during data operations.
-
-  ● Pre hooks: These hooks are invoked before data is created or edited. They are useful for externalizing actions, performing validations, or enriching data before it's saved.
-
-  ● Post hooks: These hooks would be invoked after data operations, allowing you to trigger notifications, update related data, or perform other post-processing tasks.
-
-  ● Review Hooks: These seem related to workflow or approval processes before data changes are finalized.
-
-  ● Submit, Approve, Reject, Rework, Discard: These options under "Review hooks" suggest the ability to implement a data review and approval workflow directly within the Data Service.
+- The Integration tab enables configuration of Data Hooks, which are custom logic points that execute during data operations.
+- Pre hooks: These hooks are invoked before data is created or edited. They are useful for externalizing actions, performing validations, or enriching data before it's saved.
+- Post hooks: These hooks are invoked after data operations, enabling triggering of notifications, updating of related data, or performing other post-processing tasks.
+- Review Hooks: These seem related to workflow or approval processes before data changes are finalized.
+- Submit, Approve, Reject, Rework, Discard: These options under "Review hooks" suggest the ability to implement a data review and approval workflow directly within the Data Service.
 
 ### 3. Experience : Configure the State Model
 
-  ● The Experience tab, specifically the State Model section, enables you to define a state machine for your data.
-
-  ● This is particularly useful for managing data that goes through different stages or statuses.
-
-  ● You can configure attributes to track the state of your data and define the possible transitions between states.
-
-  ● The interface allows you to "Choose existing attribute or create one..." to serve as the state indicator.
+- The Experience tab, specifically the State Model section, enables defining a state machine for the data.
+- This is particularly useful for managing data that goes through different stages or statuses.
+- Attributes can be configured to track the state of the data and define the possible transitions between states.
+- The interface provides the option to "Choose existing attribute or create one..." to serve as the state indicator.
 
 ### 4. Roles : Manage Access Control
 
-  ● The Roles tab is crucial for implementing role-based access control (RBAC) for your Data Service.
-
-  ● You can define different roles (e.g., "Manage", "View").
-
-  ●  For each role, you can specify the permissions they have on the data, such as:
-
-    ◦ Manage: Full CRUD access.
-
-    ◦ View: Read-only access.
-
-    ◦ Create: Ability to create new records.
-
-    ◦ Edit: Ability to modify existing records.
-
-    ◦ Delete: Ability to remove records.
-
-  ● Dynamic Filters: (Mentioned under "PERMISSION") This suggests the ability to define dynamic rules to further restrict data access based on specific criteria.
-
+- The Roles tab is crucial for implementing role-based access control (RBAC) for the Data Service.
+- Different roles (e.g., "Manage", "View") can be defined.
+- For each role, permissions on the data can be specified, such as:
+  - Manage: Full CRUD access.
+  - View: Read-only access.
+  - Create: Ability to create new records.
+  - Edit: Ability to modify existing records.
+  - Delete: Ability to remove records.
+- Dynamic Filters: (Mentioned under "PERMISSION") This suggests the ability to define dynamic rules to further restrict data access based on specific criteria.
 
 ### 5. Settings: Fine-tune Data Service Behaviour
 
-  ● The Settings tab provides various options to customize the behaviour of your Data Service:
-
-    ◦ Soft Delete: Enabling this allows you to mark records as deleted without permanently removing them, 
-    preserving data history and enabling potential recovery.
-
-    ◦ Track and store changes of data history: Enabling this keeps a log of all modifications
-     made to your data, providing an audit trail. You can likely view versions and the duration
-      for which history is retained.
-
-    ◦ Simple Date/Retain data by: These settings likely control how dates are handled and for how long data is retained.
-
-    ◦ Insights Settings: The option to "Disable Insights" is available, suggesting DNIO provides
-     some level of data insights or analytics that can be toggled.
+- The Settings tab provides various options to customize the behaviour of the Data Service:
+  - Soft Delete: Enabling this marks records as deleted without permanently removing them, preserving data history and enabling potential recovery.
+  - Track and store changes of data history: Enabling this keeps a log of all modifications made to the data, providing an audit trail. Versions and the duration for which history is retained can be viewed.
+  - Simple Date/Retain data by: These settings likely control how dates are handled and for how long data is retained.
+  - Insights Settings: The option to "Disable Insights" is available, suggesting DNIO provides some level of data insights or analytics that can be toggled.
 
 ### 6. YAML : View and Edit the Underlying Configuration
 
-  ● The YAML tab provides a low-level view of the Data Service configuration in YAML format.
-
-  ● This is useful for advanced users who want to directly inspect or modify the service definition.
-
-  ● It outlines metadata, specifications (including container details, ports, and environment variables), and potentially other configuration aspects.
+- The YAML tab provides a low-level view of the Data Service configuration in YAML format.
+- This is useful for advanced users who want to directly inspect or modify the service definition.
+- It outlines metadata, specifications (including container details, ports, and environment variables), and potentially other configuration aspects.
 
 ### 7. Audit : Track Data Service Activity
 
-  ● The Audit tab provides a log of actions performed on the Data Service, such as data creation, modification, and deletion.
+- The Audit tab provides a log of actions performed on the Data Service, such as data creation, modification, and deletion.
+- TIMESTAMP: Records the time of the event.
+- DATA: Shows details of the data involved in the event (e.g., "2 fields," "5 fields," "27 fields" indicating the number of fields affected).
+- Features like "Purge Audit," "Columns" selection, and "Filter" enable effective management and analysis of the audit logs.
 
-  ● TIMESTAMP: Records the time of the event.
+---
 
-  ● DATA: Shows details of the data involved in the event (e.g., "2 fields," "5 fields," "27
-   fields" indicating the number of fields affected).
+### 1. How to create and deploy a new Data Services 
 
-  ● Features like "Purge Audit," "Columns" selection, and "Filter" allow you to manage and analyze the audit logs effectively.
+● Login to the datanimbus.io Studio. You will be directed to the Data Services page by default.
+  If not, go to the Data Services page by clicking on Services under the Data menu.
 
-
-  1. How to create and deploy a new Data Services 
-
-    ● Login to the datanimbus.io Studio. You will be directed to the Data Services page by
-     default. If not, go to the Data Services page by clicking on Services under the Data menu.
-
-    ● Click on “+ New” to create a new Data Service and add the necessary information
+● Click on “+ New” to create a new Data Service and add the necessary information
 
 <p align="center">
   <img src="/app/assets/docs/images/dataservice_1.png" alt="dataservice">
   Demonstration - 01
 </p>
 
-  ● Enter the name for the Data Service and click on create. By default, a schema based data
-   service will be created. You can change this to schema free by selecting that option below the name)
+● Enter the name for the Data Service and click on create. By default, a schema based data
+service will be created. You can change this to schema free by selecting that option below the name)
 
 <p align="center">
   <img src="/app/assets/docs/images/dataservice_2.png" alt="dataservice">
@@ -316,7 +258,9 @@ Part 1: Configuration in the Author Page
   These steps guide you through setting up the Maker-Checker workflow using Data Services, Groups, Users, 
   and the Workflow configuration in the Author environment, and then demonstrating the data entry and approval process in the AppCenter.
 
-  3. How Pre-hooks are configured?
+---
+
+### 3. How Pre-hooks are configured?
 
 Pre-hooks are executed before data is created or updated in a Data Service. They are often used for validation, data manipulation
 , or enrichment of the data payload before it's saved.
@@ -403,7 +347,9 @@ Pre-hooks are executed before data is created or updated in a Data Service. They
       If the Data Pipe returned an error (e.g., 400 Bad Request), the data operation should fail, and you should see an error message.
 
 
-  4. How Post-hooks are configured?
+---
+
+### 4. How Post-hooks are configured?
 
 Post-hooks are executed after a data operation (create, update, or delete) on a Data Service has successfully completed. They are 
 useful for triggering subsequent actions based on a saved data change, such as sending
@@ -486,7 +432,9 @@ useful for triggering subsequent actions based on a saved data change, such as s
       of the data record after it was saved (or confirmation/details of the deletion).
 
 
-  5. How to configure State Model?
+---
+
+### 5. How to configure State Model?
 
 A State Model is configured within the Data Service configuration that allows you to define and manage the lifecycle of a data record.
  It essentially assigns a specific "state" to each record and controls how that record can transition between these predefined states.
@@ -588,7 +536,9 @@ The record should be successfully created and appear in the StateModelTest list 
   confirming that the State Model is correctly initializing new records to their starting lifecycle stage.
 
 
-  6. How to configure Personalize?
+---
+
+### 6. How to Personalize?
 
 The "Personalize" feature within a Data Service's Experience tab allows you to define a structured, step-by-step user 
 experience for interacting with data, often used for data entry or guided processes.
