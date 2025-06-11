@@ -29,7 +29,7 @@ import { OpscenterWorkflowsComponent } from './pages/opscenter-workflows/opscent
 import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
 import { LoginProcessComponent } from './pages/login-process/login-process.component';
 // import { LoginComponent } from './pages/login/login.component';
-
+import { ExampleFlowsComponent } from './pages/example-flows/example-flows.component';
 const routes: Routes = [
   {
     path: '',  // This matches the 'docs' path from app-routing
@@ -177,6 +177,10 @@ const routes: Routes = [
       {
         path: 'yamls/:type',
         component: InsYamlsComponent
+      },
+       {
+        path: 'example-flows/:type',
+        component: ExampleFlowsComponent
       },
       {
         path: 'mongo',

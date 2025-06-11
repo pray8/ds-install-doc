@@ -10,6 +10,8 @@ export class PageFeedbackComponent implements OnInit {
   yesCount: number = 0;
   noCount: number = 0;
   showThanks: boolean = false;
+  feedbackMessage: string = " ";
+  isParty: boolean = false;
 
   ngOnInit() {
     this.loadCounts();
@@ -32,18 +34,24 @@ export class PageFeedbackComponent implements OnInit {
   onYesClick() {
     this.yesCount++;
     this.saveCounts();
+    this.feedbackMessage = "Glad you found this helpful !!";
     this.showThanks = true;
+    this.isParty = true;
     setTimeout(() => {
-      this.showThanks = false;
+      this.isParty = false;
+      setTimeout(() => {
+        this.showThanks = false;
+      }, 300);
     }, 3000);
   }
 
   onNoClick() {
     this.noCount++;
     this.saveCounts();
+    this.feedbackMessage = "Thanks for the feedback !!";
     this.showThanks = true;
     setTimeout(() => {
       this.showThanks = false;
-    }, 3000);
+    }, 4000);
   }
 }

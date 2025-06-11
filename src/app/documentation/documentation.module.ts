@@ -34,6 +34,7 @@ import { OpscenterInteractionsComponent } from './pages/opscenter-interactions/o
 import { OpscenterWorkflowsComponent } from './pages/opscenter-workflows/opscenter-workflows.component';
 import { LoginProcessComponent } from './pages/login-process/login-process.component';
 // import { LoginComponent } from './pages/login/login.component';
+import { ExampleFlowsComponent } from './pages/example-flows/example-flows.component';
 
 @NgModule({
   declarations: [
@@ -66,8 +67,9 @@ import { LoginProcessComponent } from './pages/login-process/login-process.compo
     OpscenterServicesComponent,
     OpscenterInteractionsComponent,
     OpscenterWorkflowsComponent,
-    LoginProcessComponent
+    LoginProcessComponent,
     // LoginComponent
+    ExampleFlowsComponent
   ],
   imports: [
     CommonModule,

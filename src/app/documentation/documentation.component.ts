@@ -103,6 +103,14 @@ export class DocumentationComponent implements OnInit {
         { path: 'opscenter-agents', title: 'Agents' },
         { path: 'opscenter-workflows', title: 'Workflows' }
       ]
+    },
+    {
+      title: "Example Flows",
+      children: [
+        // { path: 'appcenter-overview', title: 'Overview' },
+        { path: 'example-flows/LMS-flow', title: 'Loan management system' },
+        { path: 'example-flows/SCB-flow', title: 'Reporting engine' }
+      ]
     }
   ];
 
