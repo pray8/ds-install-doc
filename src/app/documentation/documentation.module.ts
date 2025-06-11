@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocumentationRoutingModule } from './documentation-routing.module';
 import { DocumentationComponent } from './documentation.component';
 import { OverviewComponent } from './pages/overview/overview.component';
@@ -32,6 +32,8 @@ import { OpscenterAgentsComponent } from './pages/opscenter-agents/opscenter-age
 import { OpscenterServicesComponent } from './pages/opscenter-services/opscenter-services.component';
 import { OpscenterInteractionsComponent } from './pages/opscenter-interactions/opscenter-interactions.component';
 import { OpscenterWorkflowsComponent } from './pages/opscenter-workflows/opscenter-workflows.component';
+import { LoginProcessComponent } from './pages/login-process/login-process.component';
+// import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -63,14 +65,17 @@ import { OpscenterWorkflowsComponent } from './pages/opscenter-workflows/opscent
     OpscenterAgentsComponent,
     OpscenterServicesComponent,
     OpscenterInteractionsComponent,
-    OpscenterWorkflowsComponent
+    OpscenterWorkflowsComponent,
+    LoginProcessComponent
+    // LoginComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     DocumentationRoutingModule,
     MarkdownModule.forChild(),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     PageFeedbackComponent

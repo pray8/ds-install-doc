@@ -27,12 +27,24 @@ import { OpscenterServicesComponent } from './pages/opscenter-services/opscenter
 import { OpscenterInteractionsComponent } from './pages/opscenter-interactions/opscenter-interactions.component';
 import { OpscenterWorkflowsComponent } from './pages/opscenter-workflows/opscenter-workflows.component';
 import { InsHowToComponent } from './pages/ins-how-to/ins-how-to.component';
+import { LoginProcessComponent } from './pages/login-process/login-process.component';
+// import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
     path: '',  // This matches the 'docs' path from app-routing
     component: DocumentationComponent,
     children: [
+      // {
+      //   path: '',
+      //   redirectTo: 'login',
+      //   pathMatch: 'full'
+      // },
+      // {
+      //   path: 'login',
+      //   component: LoginComponent,
+      //   pathMatch: 'full'
+      // },
       {
         path: '',
         redirectTo: 'overview',
@@ -126,6 +138,10 @@ const routes: Routes = [
       {
         path: 'system-requirements',
         component: SystemRequirementsComponent,
+        pathMatch: 'full'
+      },{
+        path: 'login-process',
+        component: LoginProcessComponent,
         pathMatch: 'full'
       },
       {
